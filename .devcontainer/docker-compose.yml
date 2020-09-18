@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  app:
+    build: .
+    working_dir: /app
+    env_file: devcontainer.env
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - ..:/app:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - 11001:3000
